@@ -1,4 +1,7 @@
 datasciencecoursera
 ===================
 
-Repository for Coursera course "Data Scientist's Toolbox"
+Repository for Coursera Data Science track courses.
+
+* RProg   - R Programming
+* GetData - Getting and Cleaning Data
