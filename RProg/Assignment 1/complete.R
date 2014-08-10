@@ -14,5 +14,13 @@ complete <- function(directory, id = 1:332) {
         ## number of complete cases
         
         files <- list.files(directory, full.names=T)
-
+        
+        completeCases <- data.frame(id=numeric(), nobs=numeric())
+        for (monitor in id) {
+            monitorData <- read.csv(files[monitor])
+            nDump <- is.na(monitorData$nitrate)
+            sDump <- is.na(monitorData$sulfate)
+            completeCases <- rbind(completeCases, data.frame(id=monitor, nobs=length(monitorData[!nDump & !sDump, 1])))
+        }
+        completeCases
 }
