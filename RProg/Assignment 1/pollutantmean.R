@@ -11,4 +11,15 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
 
         ## Return the mean of the pollutant across all monitors list
         ## in the 'id' vector (ignoring NA values)
+        
+        files <- list.files(directory, full.names=T)
+        
+        pollutantLevel <- numeric()
+        for (monitor in id) {
+            monitorData <- read.csv(files[monitor])
+            pollutantLevel <- c(pollutantLevel, monitorData[, pollutant])
+            rm(monitorData) # don't hold everything in memory, I assume this is done anyways when monitorData is bound to a new file, but better safe than sorry I figure
+        }
+        polMean <- mean(pollutantLevel, na.rm=T)
+        round(polMean, 3) # Match sample output with 3 digit precision
 }
