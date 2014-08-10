@@ -12,6 +12,9 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
         ## Return the mean of the pollutant across all monitors list
         ## in the 'id' vector (ignoring NA values)
         
+        # Thanks to CTA Derek Franks for his tutorial 
+        # (https://github.com/derekfranks/practice_assignment) from which I 
+        # learned this method of making the files easily indexable
         files <- list.files(directory, full.names=T)
         
         pollutantLevel <- numeric()
