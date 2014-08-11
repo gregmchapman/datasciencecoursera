@@ -8,4 +8,18 @@ corr <- function(directory, threshold = 0) {
         ## nitrate and sulfate; the default is 0
 
         ## Return a numeric vector of correlations
+        
+        # we're reusing some functionality, so why rewrite?
+        source("complete.R")
+        files <- list.files(directory, full.names=T)
+        completeCases <- complete(directory)
+        
+        corrVector <- numeric()
+        for (monitor in 1:332) {
+          if (completeCases[monitor, "nobs"] < threshold) {next}
+          monitorData <- read.csv(files[monitor])
+          corrVector <- c(corrVector, 
+              cor(monitorData$nitrate, monitorData$sulfate, use="pairwise", method="pearson"))
+        }
+        corrVector
 }
