@@ -4,6 +4,10 @@
 if you import it using `source("/path/to/run_analysis.R")` and then run `clean_that_data()`.
 The script will download and unzip the data into your working directory and writes the tidy data set to the working directory as well.
 
+TODO: Make column labels friendlier
+      Make codebook
+      Improve this readme
+
 
 \[1\] Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. 
 Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass 
