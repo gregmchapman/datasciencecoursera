@@ -6,9 +6,9 @@
 # the data are already in a folder called "UCI HAR Dataset"
 get_that_data <- function(dir=".") {
     fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-    print("Downloading...")
+    message("Downloading...")
     download.file(url=fileUrl, destfile="Dataset.zip")
-    print("Extracting...")
+    message("Extracting...")
     unzip("Dataset.zip", exdir=dir)
-    print("Ready to analyze.")
+    message("Ready to analyze.")
 }
