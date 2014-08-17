@@ -1,21 +1,14 @@
-# not so much an analysis, as a *tidying up* of the UCI HAR dataset
-
-clean_that_data <- function(dir = "./UCI HAR Dataset") {
-    # run_analysis.R does (will do, whatever) the following:
+clean_that_data <- function() {
+    # run_analysis.R does the following:
     #    (though not neccesarily in the order given here)
     #    1. Merge the training and the test sets to create one data set.
-    ###     DONE, HOORAY!!!
     #    2. Extract only the measurements on the mean and standard deviation
     #       for each measurement. 
-    ###     DONE, HOORAY!!!
     #    3. Use descriptive activity names to name the activities in the data set.
-    ###     DONE, HOORAY!!!
     #    4. Appropriately label the data set with descriptive variable names.
-    ###     DONE, HOORAY!!!
     #    5. Create a second, independent tidy data set with the average of
     #       each variable for each activity and each subject. 
-    #       - 6 activites, 30 subjects = 180 rows X 78? columns **expected** dimensions
-    
+
     message("This could take a while, why don't you grab some coffee?")
     
     require(reshape2) # we want to melt() and dcast()
@@ -28,10 +21,9 @@ clean_that_data <- function(dir = "./UCI HAR Dataset") {
     unzip("Dataset.zip", exdir=".")
     message("Ready to tidy.\n")
     
-    
-    # first, let's read in all the relevant files
-    message("Loading data...")
-    dir = "./UCI HAR Dataset"
+    # now, let's read in all the relevant files
+    message("Reading data...")
+    dir <- "./UCI HAR Dataset"
     testSubjects  <- read.table(paste0(dir, "/test/subject_test.txt"), 
                                 colClasses="factor", nrows=2950)
     trainSubjects <- read.table(paste0(dir, "/train/subject_train.txt"),
@@ -48,7 +40,7 @@ clean_that_data <- function(dir = "./UCI HAR Dataset") {
     activityNames <- read.table(paste0(dir, "/activity_labels.txt"))
     
     # phew, that's done, now let's mess with the feature names a bit
-    message("Massaging data... (How's that coffee?)")
+    message("Merging data... (How's that coffee?)")
     featureNames <- features[, 2]
     featureNames <- gsub("()", "_", featureNames, fixed=T) # get rid of empty parens
                                                            # the replacement with underscores
@@ -75,7 +67,6 @@ clean_that_data <- function(dir = "./UCI HAR Dataset") {
                        activity=enchilada$activity,
                        enchilada[, grepl("(mean|std)_", colnames(enchilada))])
     
-    
     message("Reshaping data...")
     # first make sure subjects are ordered as expected
     enchilada$subject <- ordered(enchilada$subject, c("1", "2", "3", "4", "5",
@@ -89,8 +80,18 @@ clean_that_data <- function(dir = "./UCI HAR Dataset") {
     meanCast <- dcast(enchiladaMelt, subject + activity ~ variable, mean)
     meanCast <- meanCast[order(meanCast$subject), ]
     
+    # so our columns have changed, and are not appropriately named anymore
+    newCols <- character()
+    for (name in colnames(meanCast)[3:68]) {
+        name <- gsub("_", "", name)     # get rid of those kludgy underscores
+        name <- paste0(name, "Mean")    # note that the measure is now the mean of whatever
+        newCols <- c(newCols, name)
+    }
+    colnames(meanCast) <- newCols
+    
     message("Writing data...")
     write.table(meanCast, file="tidied_UCI_HAR_data.txt", row.names=F, quote=F)
     message("Finished!")
+    # return the tidy dataset in case you want to play with it
     meanCast
 }
