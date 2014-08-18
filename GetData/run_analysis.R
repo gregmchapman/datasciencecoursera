@@ -92,6 +92,6 @@ clean_that_data <- function() {
     message("Writing data...")
     write.table(meanCast, file="tidied_UCI_HAR_data.txt", row.names=F, quote=F)
     message("Finished!")
-    # return the tidy dataset in case you want to play with it
-    meanCast
+    # return the unmelted dataset in case you want to play with it
+    invisible(enchilada) # doesn't sound as tasty as enchiladaMelt
 }
