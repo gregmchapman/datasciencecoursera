@@ -12,6 +12,7 @@ clean_that_data <- function() {
     message("This could take a while, why don't you grab some coffee?")
     
     require(reshape2) # we want to melt() and dcast()
+    require(beepr)    # use beep() to play a sound when it completes
     
     # I'm not going to assume you have the data yet
     fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
@@ -93,7 +94,7 @@ clean_that_data <- function() {
     message("Writing data...")
     write.table(meanCast, file="tidied_UCI_HAR_data.txt", row.names=F, quote=F)
     message("Finished!")
-    system("rundll32 user32.dll,MessageBeep -1") # Windows specific, hopefully won't hurt other OS's
+    beep(8)
     # return the unmelted dataset in case you want to play with it
     invisible(enchilada) # doesn't sound as tasty as enchiladaMelt
 }
