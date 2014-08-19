@@ -46,6 +46,7 @@ clean_that_data <- function() {
                                                            # the replacement with underscores
                                                            # is a kludge to get grepl() to work below
     featureNames <- gsub("[(),-]", "", featureNames)       # remove other problem chars
+    featureNames <- gsub("BodyBody", "Body", featureNames) # remove doubled body's
     
     # next we'll duct-tape the whole mess together
     subjects <- rbind(testSubjects, trainSubjects)
@@ -66,6 +67,7 @@ clean_that_data <- function() {
     enchilada <- cbind(subject=enchilada$subject,
                        activity=enchilada$activity,
                        enchilada[, grepl("(mean|std)_", colnames(enchilada))])
+    colnames(enchilada) <- gsub("_", "", colnames(enchilada)) # get rid of those kludgy underscores
     
     message("Reshaping data...")
     # first make sure subjects are ordered as expected
@@ -83,15 +85,15 @@ clean_that_data <- function() {
     # so our columns have changed, and are not appropriately named anymore
     newCols <- character()
     for (name in colnames(meanCast)[3:68]) {
-        name <- gsub("_", "", name)     # get rid of those kludgy underscores
         name <- paste0(name, "Mean")    # note that the measure is now the mean of whatever
         newCols <- c(newCols, name)
-    }
+    } # if there's a way to do this with *apply() or gsub(), I wish I'd figured it out
     colnames(meanCast) <- newCols
     
     message("Writing data...")
     write.table(meanCast, file="tidied_UCI_HAR_data.txt", row.names=F, quote=F)
     message("Finished!")
+    system("rundll32 user32.dll,MessageBeep -1") # Windows specific, hopefully won't hurt other OS's
     # return the unmelted dataset in case you want to play with it
     invisible(enchilada) # doesn't sound as tasty as enchiladaMelt
 }
