@@ -1,6 +1,7 @@
 clean_that_data <- function() {
     # run_analysis.R does the following:
     #    (though not neccesarily in the order given here)
+    #    0. Download and unzip the UCI HAR Dataset    
     #    1. Merge the training and the test sets to create one data set.
     #    2. Extract only the measurements on the mean and standard deviation
     #       for each measurement. 
@@ -84,13 +85,9 @@ clean_that_data <- function() {
     meanCast <- meanCast[order(meanCast$subject), ]
     
     # so our columns have changed, and are not appropriately named anymore
-    newCols <- character()
-    for (name in colnames(meanCast)[3:68]) {
-        name <- paste0(name, "Mean")    # note that the measure is now the mean of whatever
-        newCols <- c(newCols, name)
-    } # if there's a way to do this with *apply() or gsub(), I wish I'd figured it out
-    colnames(meanCast) <- newCols
-    
+    colnames(meanCast)[3:68] <- sapply(colnames(meanCast)[3:68], 
+                                       function(x) paste0(x, "Mean"))
+        
     message("Writing data...")
     write.table(meanCast, file="tidied_UCI_HAR_data.txt", row.names=F, quote=F)
     message("Finished!")
