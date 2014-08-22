@@ -1,11 +1,11 @@
 # Code book
 
 ### subject
-Subject number
+Subject identifier
   * 1 .. 30
 
 ### activity
-The activity the subject was performing.
+The activity the subject was performing
   * WALKING
   * WALKING_UPSTAIRS
   * WALKING_DOWNSTAIRS
@@ -13,200 +13,200 @@ The activity the subject was performing.
   * STANDING
   * LAYING
 
-### tBodyAccmeanX
-Mean value of the acceleration signal of the body along the X axis
+### tBodyAccmeanXMean
+Mean of the calculated mean values of the time domain acceleration signal of the body along the X axis
 
-### tBodyAccmeanY
-Mean value of the acceleration signal of the body along the Y axis
+### tBodyAccmeanYMean
+Mean of the calculated mean values of the time domain acceleration signal of the body along the Y axis
 
-### tBodyAccmeanZ
-Mean value of the acceleration signal of the body along the Z axis
+### tBodyAccmeanZMean
+Mean of the calculated mean values of the time domain acceleration signal of the body along the Z axis
 
-### tBodyAccstdX
-Standard deviation of the acceleration signal of the body along the X axis
+### tBodyAccstdXMean
+Mean of the calculated standard deviations of the time domain acceleration signal of the body along the X axis
 
-### tBodyAccstdY
-Standard deviation of the acceleration signal of the body along the Y axis
+### tBodyAccstdYMean
+Mean of the calculated standard deviations of the time domain acceleration signal of the body along the Y axis
 
-### tBodyAccstdZ
-Standard deviation of the acceleration signal of the body along the Y axis
+### tBodyAccstdZMean
+Mean of the calculated standard deviations of the time domain acceleration signal of the body along the Y axis
 
-### tGravityAccmeanX
-Mean value of the acceleration signal of gravity along the X axis
+### tGravityAccmeanXMean
+Mean of the calculated mean values of the time domain acceleration signal of gravity along the X axis
 
-### tGravityAccmeanY
-Mean value of the acceleration signal of gravity along the Y axis
+### tGravityAccmeanYMean
+Mean of the calculated mean values of the time domain acceleration signal of gravity along the Y axis
 
-### tGravityAccmeanZ
-Mean value of the acceleration signal of gravity along the Z axis
+### tGravityAccmeanZMean
+Mean of the calculated mean values of the time domain acceleration signal of gravity along the Z axis
 
-### tGravityAccstdX
-Standard deviation of the acceleration signal of gravity along the X axis
+### tGravityAccstdXMean
+Mean of the calculated standard deviations of the time domain acceleration signal of gravity along the X axis
 
-### tGravityAccstdY
-Standard deviation of the acceleration signal of gravity along the Y axis
+### tGravityAccstdYMean
+Mean of the calculated standard deviations of the time domain acceleration signal of gravity along the Y axis
 
-### tGravityAccstdZ
-Standard deviation of the acceleration signal of gravity along the Z axis
+### tGravityAccstdZMean
+Mean of the calculated standard deviations of the time domain acceleration signal of gravity along the Z axis
 
-### tBodyAccJerkmeanX
-Mean value
+### tBodyAccJerkmeanXMean
+Mean of the calculated mean values of the time domain accelerometer jerk signal of the body along the X axis
 
-### tBodyAccJerkmeanY
-Mean value
+### tBodyAccJerkmeanYMean
+Mean of the calculated mean values of the time domain accelerometer jerk signal of the body along the Y axis
 
-### tBodyAccJerkmeanZ
-Mean value
+### tBodyAccJerkmeanZMean
+Mean of the calculated mean values of the time domain accelerometer jerk signal of the body along the Z axis
 
-### tBodyAccJerkstdX
-Standard deviation
+### tBodyAccJerkstdXMean
+Mean of the calculated standard deviations of the time domain accelerometer jerk signal of the body along the X axis
 
-### tBodyAccJerkstdY
-Standard deviation
+### tBodyAccJerkstdYMean
+Mean of the calculated standard deviations of the time domain accelerometer jerk signal of the body along the Y axis
 
-### tBodyAccJerkstdZ
-Standard deviation
+### tBodyAccJerkstdZMean
+Mean of the calculated standard deviations of the time domain accelerometer jerk signal of the body along the Z axis
 
-### tBodyGyromeanX
-Mean value
+### tBodyGyromeanXMean
+Mean of the calculated mean values of the X component of the time domain gyroscope signal of the body 
 
-### tBodyGyromeanY
-Mean value
+### tBodyGyromeanYMean
+Mean of the calculated mean values of the Y component of the time domain gyroscope signal of the body 
 
-### tBodyGyromeanZ
-Mean value
+### tBodyGyromeanZMean
+Mean of the calculated mean values of the Z component of the time domain gyroscope signal of the body 
 
-### tBodyGyrostdX
-Standard deviation
+### tBodyGyrostdXMean
+Mean of the calculated standard deviations of the X component of the time domain gyroscope signal of the body 
 
-### tBodyGyrostdY
-Standard deviation
+### tBodyGyrostdYMean
+Mean of the calculated standard deviations of the Y component of the time domain gyroscope signal of the body 
 
-### tBodyGyrostdZ
-Standard deviation
+### tBodyGyrostdZMean
+Mean of the calculated standard deviations of the Z component of the time domain gyroscope signal of the body 
 
-### tBodyGyroJerkmeanX
-Mean value
+### tBodyGyroJerkmeanXMean
+Mean of the calculated mean values of the X component of the time domain gyroscope jerk signal of the body 
 
-### tBodyGyroJerkmeanY
-Mean value
+### tBodyGyroJerkmeanYMean
+Mean of the calculated mean values of the Y component of the time domain gyroscope jerk signal of the body 
 
-### tBodyGyroJerkmeanZ
-Mean value
+### tBodyGyroJerkmeanZMean
+Mean of the calculated mean values of the Z component of the time domain gyroscope jerk signal of the body 
 
-### tBodyGyroJerkstdX
-Standard deviation
+### tBodyGyroJerkstdXMean
+Mean of the calculated standard deviations of the X component of the time domain gyroscope jerk signal of the body 
 
-### tBodyGyroJerkstdY
-Standard deviation
+### tBodyGyroJerkstdYMean
+Mean of the calculated standard deviations of the Y component of the time domain gyroscope jerk signal of the body 
 
-### tBodyGyroJerkstdZ
-Standard deviation
+### tBodyGyroJerkstdZMean
+Mean of the calculated standard deviations of the Z component of the time domain gyroscope jerk signal of the body 
 
-### tBodyAccMagmean
-Mean value
+### tBodyAccMagmeanMean
+Mean of the calculated mean values of the magnitude of the time domain acceleration signal of the body
 
-### tBodyAccMagstd
-Standard deviation
+### tBodyAccMagstdMean
+Mean of the calculated standard deviations of the magnitude of the time domain acceleration signal of the body
 
-### tGravityAccMagmean
-Mean value
+### tGravityAccMagmeanMean
+Mean of the calculated mean values of the magnitude of the time domain acceleration signal of gravity
 
-### tGravityAccMagstd
-Standard deviation
+### tGravityAccMagstdMean
+Mean of the calculated standard deviations of the magnitude of the time domain acceleration signal of gravity
 
-### tBodyAccJerkMagmean
-Mean value
+### tBodyAccJerkMagmeanMean
+Mean of the calculated mean values of the magnitude of the time domain acceleration jerk signal of the body
 
-### tBodyAccJerkMagstd
-Standard deviation
+### tBodyAccJerkMagstdMean
+Mean of the calculated standard deviations of the magnitude of the time domain acceleration jerk signal of the body
 
-### tBodyGyroMagmean
-Mean value
+### tBodyGyroMagmeanMean
+Mean of the calculated mean values of the magnitude of the time domain gyroscope signal of the body
 
-### tBodyGyroMagstd
-Standard deviation
+### tBodyGyroMagstdMean
+Mean of the calculated standard deviations of the magnitude of the time domain gyroscope signal of the body
 
-### tBodyGyroJerkMagmean
-Mean value
+### tBodyGyroJerkMagmeanMean
+Mean of the calculated mean values of the magnitude of the time domain gyroscope jerk signal of the body
 
-### tBodyGyroJerkMagstd
-Standard deviation
+### tBodyGyroJerkMagstdMean
+Mean of the calculated standard deviations of the magnitude of the time domain gyroscope jerk signal of the body
 
-### fBodyAccmeanX
-Mean value
+### fBodyAccmeanXMean
+Mean of the calculated mean values of the frequency domain acceleration signal of the body along the X axis
 
-### fBodyAccmeanY
-Mean value
+### fBodyAccmeanYMean
+Mean of the calculated mean values of the frequency domain acceleration signal of the body along the Y axis
 
-### fBodyAccmeanZ
-Mean value
+### fBodyAccmeanZMean
+Mean of the calculated mean values of the frequency domain acceleration signal of the body along the Z axis
 
-### fBodyAccstdX
-Standard deviation
+### fBodyAccstdXMean
+Mean of the calculated standard deviations of the frequency domain acceleration signal of the body along the X axis
 
-### fBodyAccstdY
-Standard deviation
+### fBodyAccstdYMean
+Mean of the calculated standard deviations of the frequency domain acceleration signal of the body along the Y axis
 
-### fBodyAccstdZ
-Standard deviation
+### fBodyAccstdZMean
+Mean of the calculated standard deviations of the frequency domain acceleration signal of the body along the Z axis
 
-### fBodyAccJerkmeanX
-Mean value
+### fBodyAccJerkmeanXMean
+Mean of the calculated mean values of the frequency domain acceleration jerk signal of the body along the X axis
 
-### fBodyAccJerkmeanY
-Mean value
+### fBodyAccJerkmeanYMean
+Mean of the calculated mean values of the frequency domain acceleration jerk signal of the body along the Y axis
 
-### fBodyAccJerkmeanZ
-Mean value
+### fBodyAccJerkmeanZMean
+Mean of the calculated mean values of the frequency domain acceleration jerk signal of the body along the Z axis
 
-### fBodyAccJerkstdX
-Standard deviation
+### fBodyAccJerkstdXMean
+Mean of the calculated standard deviations of the frequency domain acceleration jerk signal of the body along the X axis
 
-### fBodyAccJerkstdY
-Standard deviation
+### fBodyAccJerkstdYMean
+Mean of the calculated standard deviations of the frequency domain acceleration jerk signal of the body along the Y axis
 
-### fBodyAccJerkstdZ
-Standard deviation
+### fBodyAccJerkstdZMean
+Mean of the calculated standard deviations of the frequency domain acceleration jerk signal of the body along the Z axis
 
-### fBodyGyromeanX
-Mean value
+### fBodyGyromeanXMean
+Mean of the calculated mean values of the X component of the frequency domain gyroscope signal of the body
 
 ### fBodyGyromeanY
-Mean value
+Mean of the calculated mean values of the Y component of the frequency domain gyroscope signal of the body
 
 ### fBodyGyromeanZ
-Mean value
+Mean of the calculated mean values of the Z component of the frequency domain gyroscope signal of the body
 
 ### fBodyGyrostdX
-Standard deviation
+Mean of the calculated standard deviations of the X component of the frequency domain gyroscope signal of the body
 
 ### fBodyGyrostdY
-Standard deviation
+Mean of the calculated standard deviations of the Y component of the frequency domain gyroscope signal of the body
 
 ### fBodyGyrostdZ
-Standard deviation
+Mean of the calculated standard deviations of the Z component of the frequency domain gyroscope signal of the body
 
 ### fBodyAccMagmean
-Mean value
+Mean of the calculated mean values of the magnitude of the frequency domain acceleration signal of the body
 
 ### fBodyAccMagstd
-Standard deviation
+Mean of the calculated standard deviations of the magnitude of the frequency domain acceleration signal of the body
 
 ### fBodyAccJerkMagmean
-Mean value
+Mean of the calculated mean values of the magnitude of the frequency domain acceleration jerk signal of the body
 
 ### fBodyAccJerkMagstd
-Standard deviation
+Mean of the calculated standard deviations of the magnitude of the frequency domain acceleration jerk signal of the body
 
 ### fBodyGyroMagmean
-Mean value
+Mean of the calculated mean values of the magnitude of the frequency domain gyroscope signal of the body
 
 ### fBodyGyroMagstd
-Standard deviation
+Mean of the calculated standard deviations of the magnitude of the frequency domain gyroscope signal of the body
 
 ### fBodyGyroJerkMagmean
-Mean value
+Mean of the calculated mean values of the magnitude of the frequency domain gyroscope jerk signal of the body
 
 ### fBodyGyroJerkMagstd
-Standard deviation
+Mean of the calculated standard deviations of the magnitude of the frequency domain gyroscope jerk signal of the body
