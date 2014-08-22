@@ -55,6 +55,7 @@ clean_that_data <- function() {
     activities <- rbind(testActivities, trainActivities)
     data <- rbind(testData, trainData)
     enchilada <- cbind(subjects, activities, data) # enchilada, as in "the whole enchilada"
+    testData <- trainData <- NULL                  # my machine has memory issues
     
     # how 'bout naming those columns?
     colnames(enchilada) <- c("subject", "activity", featureNames)
@@ -84,10 +85,6 @@ clean_that_data <- function() {
     meanCast <- dcast(enchiladaMelt, subject + activity ~ variable, mean)
     meanCast <- meanCast[order(meanCast$subject), ]
     
-    # so our columns have changed, and are not appropriately named anymore
-    colnames(meanCast)[3:68] <- sapply(colnames(meanCast)[3:68], 
-                                       function(x) paste0(x, "Mean"))
-        
     message("Writing data...")
     write.table(meanCast, file="tidied_UCI_HAR_data.txt", row.names=F, quote=F)
     message("Finished!")
