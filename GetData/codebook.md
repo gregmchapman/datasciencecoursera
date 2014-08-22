@@ -15,15 +15,19 @@ The activity the subject was performing
 
 ### tBodyAccmeanXMean
 Mean of the calculated mean values of the time domain acceleration signal of the body along the X axis
+* 0.2216 .. 0.3015
 
 ### tBodyAccmeanYMean
 Mean of the calculated mean values of the time domain acceleration signal of the body along the Y axis
+* -0.040514 .. -0.001308
 
 ### tBodyAccmeanZMean
 Mean of the calculated mean values of the time domain acceleration signal of the body along the Z axis
+* -0.15251 .. -0.07538
 
 ### tBodyAccstdXMean
 Mean of the calculated standard deviations of the time domain acceleration signal of the body along the X axis
+* -0.9961 ..  0.6269
 
 ### tBodyAccstdYMean
 Mean of the calculated standard deviations of the time domain acceleration signal of the body along the Y axis
@@ -172,41 +176,41 @@ Mean of the calculated standard deviations of the frequency domain acceleration 
 ### fBodyGyromeanXMean
 Mean of the calculated mean values of the X component of the frequency domain gyroscope signal of the body
 
-### fBodyGyromeanY
+### fBodyGyromeanYMean
 Mean of the calculated mean values of the Y component of the frequency domain gyroscope signal of the body
 
-### fBodyGyromeanZ
+### fBodyGyromeanZMean
 Mean of the calculated mean values of the Z component of the frequency domain gyroscope signal of the body
 
-### fBodyGyrostdX
+### fBodyGyrostdXMean
 Mean of the calculated standard deviations of the X component of the frequency domain gyroscope signal of the body
 
-### fBodyGyrostdY
+### fBodyGyrostdYMean
 Mean of the calculated standard deviations of the Y component of the frequency domain gyroscope signal of the body
 
-### fBodyGyrostdZ
+### fBodyGyrostdZMean
 Mean of the calculated standard deviations of the Z component of the frequency domain gyroscope signal of the body
 
-### fBodyAccMagmean
+### fBodyAccMagmeanMean
 Mean of the calculated mean values of the magnitude of the frequency domain acceleration signal of the body
 
-### fBodyAccMagstd
+### fBodyAccMagstdMean
 Mean of the calculated standard deviations of the magnitude of the frequency domain acceleration signal of the body
 
-### fBodyAccJerkMagmean
+### fBodyAccJerkMagmeanMean
 Mean of the calculated mean values of the magnitude of the frequency domain acceleration jerk signal of the body
 
-### fBodyAccJerkMagstd
+### fBodyAccJerkMagstdMean
 Mean of the calculated standard deviations of the magnitude of the frequency domain acceleration jerk signal of the body
 
-### fBodyGyroMagmean
+### fBodyGyroMagmeanMean
 Mean of the calculated mean values of the magnitude of the frequency domain gyroscope signal of the body
 
-### fBodyGyroMagstd
+### fBodyGyroMagstdMean
 Mean of the calculated standard deviations of the magnitude of the frequency domain gyroscope signal of the body
 
-### fBodyGyroJerkMagmean
+### fBodyGyroJerkMagmeanMean
 Mean of the calculated mean values of the magnitude of the frequency domain gyroscope jerk signal of the body
 
-### fBodyGyroJerkMagstd
+### fBodyGyroJerkMagstdMean
 Mean of the calculated standard deviations of the magnitude of the frequency domain gyroscope jerk signal of the body
