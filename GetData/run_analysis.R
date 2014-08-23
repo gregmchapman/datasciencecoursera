@@ -84,6 +84,8 @@ clean_that_data <- function() {
                                      measure.vars = colnames(enchilada)[3:68])
     meanCast <- dcast(enchiladaMelt, subject + activity ~ variable, mean)
     meanCast <- meanCast[order(meanCast$subject), ]
+    # update column names to reflect that they are now the means of whatever
+    colnames(meanCast)[3:68] <- sapply(colnames(meanCast)[3:68], function(x) pasteO(x, "Mean"))
     
     message("Writing data...")
     write.table(meanCast, file="tidied_UCI_HAR_data.txt", row.names=F, quote=F)
