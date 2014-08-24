@@ -4,7 +4,7 @@
 * [Notes to the reviewer](https://github.com/gregmchapman/datasciencecoursera/tree/master/GetData#notes-to-the-reviewer)
 * [Codebook](https://github.com/gregmchapman/datasciencecoursera/blob/master/GetData/codebook.md)
 * [run_analysis.R](https://github.com/gregmchapman/datasciencecoursera/blob/master/GetData/run_analysis.R)
-* 
+
 ## Running the script
 `run_analysis.R` will produce a tidy data set from the UCI HAR Dataset\[1\]
 if you import it using `source("/path/to/run_analysis.R")` and then run `clean_that_data()`.
