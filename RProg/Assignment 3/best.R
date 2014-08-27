@@ -28,11 +28,12 @@ best <- function(state, outcome) {
     by_state <- group_by(outcomeData, stateID)
     minSet <- switch(outcome, 
                      "heart attack" = filter(by_state, heartAttack == min(heartAttack, na.rm=T)),
-                     "heart failure" = filter(by_state, outcomeCol == min(heartFailure, na.rm=T)), 
-                     "pneumonia" = filter(by_state, outcomeCol == min(pneumonia, na.rm=T)))
+                     "heart failure" = filter(by_state, heartFailure == min(heartFailure, na.rm=T)), 
+                     "pneumonia" = filter(by_state, pneumonia == min(pneumonia, na.rm=T)))
     winners <- minSet[minSet$stateID == state, "hospitalName"]
     
     
     ## Return hospital name in that state with lowest 30-day death rate
-    if (length(winners) == 1) { return(winners) }
-}
+    #if (length(winners) == 1) { return(winners) }
+    sort(winners)[1]
+    }
