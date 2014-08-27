@@ -13,26 +13,26 @@ best <- function(state, outcome) {
     columnClasses[c(2, 7, 11, 17, 23)] <- "character"
     outcomeData <- read.csv("outcome-of-care-measures.csv", colClasses=columnClasses,
                              na.strings="Not Available")
-    colnames(outcomeData) <- c("hospitalName", "state", "heartAttack", 
+    colnames(outcomeData) <- c("hospitalName", "stateID", "heartAttack", 
                                "heartFailure", "pneumonia")
-    outcomeData[3:5] <- as.numeric(outcomeData[3:5])
-    
+    outcomeData$heartAttack <- as.numeric(outcomeData$heartAttack)
+    outcomeData$heartFailure <- as.numeric(outcomeData$heartFailure)
+    outcomeData$pneumonia <- as.numeric(outcomeData$pneumonia)
+        
     ## Check that state and outcome are valid
     validOutcome <- outcome %in% c("heart attack", "heart failure", "pneumonia")
-    validState   <- state %in% outcomeData$state
+    validState   <- state %in% outcomeData$stateID
     if (!validOutcome) { stop("invalid outcome") }
     if (!validState)   { stop("invalid state") }
     
-    outcomeCol <- switch(outcome, "heart attack" = "heartAttack",
-                                  "heart failure" = "heartFailure", 
-                                  "pneumonia" = "pneumonia")
-                                  
-    
-    by_state <- group_by(outcomeData, state)
-    minSet <- as.data.frame(filter(by_state, outcomeCol == min(outcomeCol, na.rm=T)))
-    winners <- minSet[minSet$state == state, "hospitalName"]
-    if (length(winners) == 1) { return(winners) }
+    by_state <- group_by(outcomeData, stateID)
+    minSet <- switch(outcome, 
+                     "heart attack" = filter(by_state, heartAttack == min(heartAttack, na.rm=T)),
+                     "heart failure" = filter(by_state, outcomeCol == min(heartFailure, na.rm=T)), 
+                     "pneumonia" = filter(by_state, outcomeCol == min(pneumonia, na.rm=T)))
+    winners <- minSet[minSet$stateID == state, "hospitalName"]
     
     
     ## Return hospital name in that state with lowest 30-day death rate
+    if (length(winners) == 1) { return(winners) }
 }
