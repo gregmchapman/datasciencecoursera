@@ -8,7 +8,7 @@ best <- function(state, outcome) {
 
     require(dplyr) # because _fuck_ it makes things easier
     
-    ## Read outcome data
+    ## Read (and structure) outcome data
     columnClasses <- replicate(46, NULL)
     columnClasses[c(2, 7, 11, 17, 23)] <- "character"
     outcomeData <- read.csv("outcome-of-care-measures.csv", colClasses=columnClasses,
@@ -25,6 +25,7 @@ best <- function(state, outcome) {
     if (!validOutcome) { stop("invalid outcome") }
     if (!validState)   { stop("invalid state") }
     
+    ## Actually solve the problem
     by_state <- group_by(outcomeData, stateID)
     minSet <- switch(outcome, 
                      "heart attack" = filter(by_state, heartAttack == min(heartAttack, na.rm=T)),
@@ -32,8 +33,6 @@ best <- function(state, outcome) {
                      "pneumonia" = filter(by_state, pneumonia == min(pneumonia, na.rm=T)))
     winners <- minSet[minSet$stateID == state, "hospitalName"]
     
-    
     ## Return hospital name in that state with lowest 30-day death rate
-    #if (length(winners) == 1) { return(winners) }
     sort(winners)[1]
     }
