@@ -8,31 +8,27 @@ best <- function(state, outcome) {
 
     require(dplyr) # because _fuck_ it makes things easier
     
+    if (!(outcome %in% c("heart attack", "heart failure", "pneumonia"))) { 
+        stop("invalid outcome") }
+    
     ## Read (and structure) outcome data
     columnClasses <- replicate(46, NULL)
-    columnClasses[c(2, 7, 11, 17, 23)] <- "character"
+    outCol <- switch(outcome, "heart attack" = 11, "heart failure" = 17, 
+                              "pneumonia" = 23)
+    columnClasses[c(2, 7, outCol)] <- "character"
     outcomeData <- read.csv("outcome-of-care-measures.csv", colClasses=columnClasses,
                              na.strings="Not Available")
-    colnames(outcomeData) <- c("hospitalName", "stateID", "heartAttack", 
-                               "heartFailure", "pneumonia")
-    outcomeData$heartAttack <- as.numeric(outcomeData$heartAttack)
-    outcomeData$heartFailure <- as.numeric(outcomeData$heartFailure)
-    outcomeData$pneumonia <- as.numeric(outcomeData$pneumonia)
+    colnames(outcomeData) <- c("hospital", "stateID", "outcome")
+    outcomeData$outcome <- as.numeric(outcomeData$outcome)
         
     ## Check that state and outcome are valid
-    validOutcome <- outcome %in% c("heart attack", "heart failure", "pneumonia")
-    validState   <- state %in% outcomeData$stateID
-    if (!validOutcome) { stop("invalid outcome") }
-    if (!validState)   { stop("invalid state") }
+    if (!(state %in% outcomeData$stateID)) { stop("invalid state") }
     
     ## Actually solve the problem
-    by_state <- group_by(outcomeData, stateID)
-    minSet <- switch(outcome, 
-                     "heart attack" = filter(by_state, heartAttack == min(heartAttack, na.rm=T)),
-                     "heart failure" = filter(by_state, heartFailure == min(heartFailure, na.rm=T)), 
-                     "pneumonia" = filter(by_state, pneumonia == min(pneumonia, na.rm=T)))
-    winners <- minSet[minSet$stateID == state, "hospitalName"]
+    winners <- outcomeData %>% filter(stateID == state) %>%
+                               arrange(outcome, hospital) %>%
+                               select(hospital)
     
     ## Return hospital name in that state with lowest 30-day death rate
-    sort(winners)[1]
+    winners[1, 1]
     }
