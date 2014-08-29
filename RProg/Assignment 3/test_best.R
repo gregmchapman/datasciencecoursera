@@ -1,3 +1,5 @@
+source("best.R")
+
 test_that("best.R matches sample output", {
     expect_that(best("TX", "heart attack"), equals("CYPRESS FAIRBANKS MEDICAL CENTER"))
     expect_that(best("TX", "heart failure"), equals("FORT DUNCAN MEDICAL CENTER"))

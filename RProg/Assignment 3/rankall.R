@@ -24,18 +24,15 @@ rankall <- function(outcome, num = "best") {
                                    arrange(state, outcome, hospital) %>% 
                                    mutate(rank = row_number(outcome))
 
+    ## For each state, find the hospital of the given rank
     if (num == "best") { outcomeData <- outcomeData %>% filter(rank == first(rank)) } else
     if (num == "worst") { outcomeData <- outcomeData %>% filter(rank == last(rank)) } else
     if (class(num) == "numeric") { outcomeData <- outcomeData %>% filter(rank == num) }
     
-    
-    ## For each state, find the hospital of the given rank
-    
     ## Return a data frame with the hospital names and the (abbreviated) 
     ## state name
-    #outcomeData
     
-    outcomeData[ , c("hospital", "state")]
+    outcomeData %>% select(hospital, state)    # why not use dplyr style here too?
 }
 ### works for "best", "worst"; doesn't give NA's for states w/o a hospital at that rank
 ### but submit script didn't actually test for that, so I'm letting it slide
