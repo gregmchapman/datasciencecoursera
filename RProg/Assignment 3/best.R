@@ -4,24 +4,18 @@
 ## lexicographic ordering is used to break ties, rather than say upper bound
 ## or something informative; just living down to the spec... 
 
+## frankly, now that I've been playing with these scripts a bit, I see that
+## best() is equivalent to rankhospital() w/ default value of num
+
 best <- function(state, outcome) {
 
-    require(dplyr) # because _fuck_ it makes things easier
+    require(dplyr)
+    source("load_data.R")
     
-    if (!(outcome %in% c("heart attack", "heart failure", "pneumonia"))) { 
-        stop("invalid outcome") }
-    
-    ## Read (and structure) outcome data
-    columnClasses <- replicate(46, NULL)
-    outCol <- switch(outcome, "heart attack" = 11, "heart failure" = 17, 
-                              "pneumonia" = 23)
-    columnClasses[c(2, 7, outCol)] <- "character"
-    outcomeData <- read.csv("outcome-of-care-measures.csv", colClasses=columnClasses,
-                             na.strings="Not Available")
+    outcomeData <- load_data(outcome)
     colnames(outcomeData) <- c("hospital", "stateID", "outcome")
-    outcomeData$outcome <- as.numeric(outcomeData$outcome)
         
-    ## Check that state and outcome are valid
+    ## Check that state is valid
     if (!(state %in% outcomeData$stateID)) { stop("invalid state") }
     
     ## Actually solve the problem
