@@ -1,10 +1,10 @@
 # Exploratory Data Analysis Project 1
 
-* [Assignment Instructions](https://github.com/gregmchapman/ExData_Plotting1/blob/master/Instructions.md)
+* [Assignment Instructions](https://github.com/gregmchapman/datasciencecoursera/blob/master/ExData/Project%201/Instructions.md)
 
 ## To view the figures
 
-The reference figures (created by rdpeng) live in the folder [figure](https://github.com/gregmchapman/ExData_Plotting1/tree/master/figure) that was copied over by the fork. My figures, created by my scripts, live in the folder [pngs](https://github.com/gregmchapman/ExData_Plotting1/tree/master/pngs).
+The reference figures (created by rdpeng) live in the folder [figure](https://github.com/gregmchapman/ExData_Plotting1/tree/master/figure) that was copied over by the fork. My figures, created by my scripts, live in the folder [pngs](https://github.com/gregmchapman/datasciencecoursera/tree/master/ExData/Project%201/pngs).
 
 ## Reading the code
 
