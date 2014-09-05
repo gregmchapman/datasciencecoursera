@@ -1,8 +1,11 @@
 # This is just a handy way of making all the plots at once, only 
 #    performing the relatively expensive data loading once, saving
-#    some typing at the console, etc.
+#    some typing at the console, etc. I make a vector of the plotting
+#    functions sourced from the plot*.R scripts, subset the ones I want
+#    to plot and invoke do.call() on each of them, passing the data frame
+#    as they are called.
 
-make_plots <- function(nums = 1:4, dir = ".") {
+make_plots <- function(nums = 1:4, dir = "./") {
 
     suppressMessages({
         source("load_data.R")
@@ -12,8 +15,9 @@ make_plots <- function(nums = 1:4, dir = ".") {
         source("plot4.R")})
     
     makeFuncs <- c(make_plot1, make_plot2, make_plot3, make_plot4, 
-                   function(...) message("Not producing any figures.")) 
-                   # this last function is for testing purposes
+                   function(...) message("Testing.")) 
+                       # this last function was for testing aspects of the code
+                       # other than the plotting
     toMake <- makeFuncs[nums]
     
     consumption_data <- load_data(dir)

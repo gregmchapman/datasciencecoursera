@@ -6,10 +6,7 @@
 message("This file contains the function load_data(), which is invoked
 automatically by the plotting scripts. There is no need to source this file directly.")
 
-load_data <- function(dir = ".") {
-
-    require(lubridate) # for parse_date_time2(), a faster, simpler, less 
-                       # misbehaving alternative to strptime()
+load_data <- function(dir = "./") {
 
     cols <- rep("character", 9)
     cols[6] <- "NULL" # we never chart this column, so trim it now
@@ -22,9 +19,9 @@ load_data <- function(dir = ".") {
                                   nrows=2880, skip=66637, header=F, 
                                   col.names=data_names[1,])
     consumption_data <- within(consumption_data, {
-                               Date <- parse_date_time2(
+                               Date <- strptime(
                                         mapply(paste, Date, Time),
-                                        "dmYHMS")
+                                        "%d/%m/%Y %H:%M:%S")
                                rm(Time)})
     consumption_data[, 2:7] <- sapply(consumption_data[, 2:7], as.numeric)
     consumption_data
