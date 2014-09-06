@@ -20,12 +20,16 @@ make_plot1 <- function(df = NULL) {
                        xlab = "Year", 
                        ylab = "Emissions (tons)", 
                        main = "United States PM2.5 emissions from all sources",
+                       axes = FALSE,
                        type = "n"))
+    
+    # credit to SO user Gavin Simpson for this method of coloring plot area
+    # (http://stackoverflow.com/q/8741013/3958453)
     lim <- par("usr")
     rect(lim[1], lim[3]-1, lim[2], lim[4]+1, 
          border = "lightskyblue", 
          col = "lightskyblue")
-    axis(1)
+    axis(1, at = c(1999, 2002, 2005, 2008))
     axis(2)
     with(by_year, lines(year, n, lwd = 3))
     invisible(dev.off())
