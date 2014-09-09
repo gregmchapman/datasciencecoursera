@@ -1,7 +1,7 @@
 message("This file contains the function make_plot1() which can also be
 invoked by sourcing make_plots.R and calling make_plots(1)")
 
-make_plot1 <- function(df = NULL, dir = ".") {
+make_plot1 <- function(df = NULL, dir = "./") {
     
     suppressMessages(source("load_data.R"))
     
