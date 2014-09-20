@@ -1,7 +1,7 @@
 # Across the United States, how have emissions from coal combustion-related 
 # sources changed from 1999–2008?
-# Heh, heh... choropleth time (prob using maps package, 
-#                              just have to figure out coloring)
+# Too many NA's (and east coast counties too crowded) for choropleth
+# Next idea?
 
 source("set_up.R")  # reads in the two data files and replaces 
                     # numeric SCC w/ 'short name' and fips w/ state,county name
@@ -20,14 +20,27 @@ make_plot4 <- function(df = NULL) {
                      # transporting and storing coal, this gets *most* of the
                      # combustion
                      
-    df <- df %>% group_by(fips, year) %>%
+    df <- df %>% group_by(year) %>%
                  filter(SCC %in% coalComb) %>%
-                 tally(Emissions) %>%
-                 spread(year, n)
+                 tally(Emissions)
 
-    names(df) <- c("fips", "ninetynine", "ohtwo", "ohfive", "oheight")
-    df <- df %>% mutate(delta = oheight - ninetynine)
-    
     png("plot4.png")
+    
+    with(df, plot(year, n, 
+                  xlim = c(1998, 2009),
+                  xlab = "Year", 
+                  ylab = "Emissions (tons)", 
+                  main = "United States PM2.5 emissions from coal-combustion sources",
+                  axes = FALSE,
+                  type = "n"))
+                  
+    lim <- par("usr")
+    rect(lim[1], lim[3], lim[2], lim[4], 
+         border = "lightskyblue1", 
+         col = "lightskyblue1")
+    with(df, lines(year, n, lwd = 2))
+    axis(1, at = c(1999, 2002, 2005, 2008))
+    axis(2)
+    
     invisible(dev.off())
 }

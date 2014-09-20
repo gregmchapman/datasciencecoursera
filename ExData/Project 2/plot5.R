@@ -19,11 +19,28 @@ make_plot5 <- function(df = NULL) {
     
     motorVehicle <- grep("[Hh]ighway.*Vehicle", NEI$SCC, value = T)
     
-    working_set <- df %>% group_by(year) %>%
-                          filter(SCC %in% motorVehicle & 
-                                 fips == "maryland,baltimore city") %>%
-                          tally(Emissions)
+    df <- df %>% group_by(year) %>%
+                 filter(SCC %in% motorVehicle & 
+                        fips == "maryland,baltimore city") %>%
+                 tally(Emissions)
     
     png("plot5.png")
+    
+    with(df, plot(year, n, 
+                  xlim = c(1998, 2009),
+                  xlab = "Year", 
+                  ylab = "Emissions (tons)", 
+                  main = "Baltimore City PM2.5 emissions from motor vehicle sources",
+                  axes = FALSE,
+                  type = "n"))
+                  
+    lim <- par("usr")
+    rect(lim[1], lim[3], lim[2], lim[4], 
+         border = "lightskyblue1", 
+         col = "lightskyblue1")
+    with(df, lines(year, n, lwd = 2))
+    axis(1, at = c(1999, 2002, 2005, 2008))
+    axis(2)
+    
     invisible(dev.off())
 }
